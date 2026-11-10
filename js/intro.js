@@ -1,0 +1,1 @@
+try{var h=location.hash,home=(h===''||h==='#'||h==='#home'),n=performance.getEntriesByType('navigation')[0],rl=!!n&&n.type==='reload',seen=sessionStorage.getItem('fp_intro');sessionStorage.setItem('fp_intro','1');if(home&&(!seen||rl))document.documentElement.classList.add('first')}catch(e){}

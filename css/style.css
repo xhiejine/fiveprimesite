@@ -54,8 +54,8 @@ sec,section{display:block}
 .hero p.sub{max-width:46ch;margin:26px auto 30px;color:var(--mute);font-size:19px}
 .row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
 /* expanding image */
-.xp{height:clamp(300px,72vh,680px);overflow:hidden;clip-path:inset(0 12vw round 44px);will-change:clip-path}
-.xp{position:relative}.xp img{position:absolute;inset:0;opacity:0;transition:opacity 1.2s ease;width:100%;height:100%;object-fit:cover;object-position:50% 6%;transform-origin:50% 10%;display:block;transform:scale(1.2);will-change:transform}
+.xp{aspect-ratio:3/2;max-height:min(90vh,860px);max-width:1500px;margin:0 auto;overflow:hidden;clip-path:inset(0 12vw round 44px);will-change:clip-path}
+.xp{position:relative}.xp img{position:absolute;inset:0;opacity:0;transition:opacity 1.2s ease;width:100%;height:100%;object-fit:cover;object-position:50% 6%;transform-origin:50% 10%;display:block;transform:scale(1.06);will-change:transform}
 /* bento */
 .bn{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
 .bc{border-radius:24px;padding:24px;min-height:250px;display:flex;flex-direction:column;justify-content:flex-end;gap:8px;background:var(--card);overflow:hidden;position:relative;transition:transform .4s cubic-bezier(.2,.8,.2,1)}
@@ -162,3 +162,22 @@ footer h3{font:700 15px var(--f2);margin-bottom:12px;letter-spacing:0}footer a,f
 .soc a{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--card);color:var(--ink);border:1px solid var(--line);margin:0;transition:.2s}
 .soc a:hover{background:var(--g);color:#fff;border-color:var(--g)}
 .fx{display:flex;align-items:center;gap:10px;min-height:32px}.fx svg{flex:none}
+
+/* intro only on a visitor's first page view of the session */
+#intro{display:none}html.first #intro{display:flex}
+/* navigation: one straight line, logo never wraps */
+.logo,.links a,.cta{white-space:nowrap}.nav{flex-wrap:nowrap}.links{align-items:center}.logo{flex:none}
+@media(min-width:1181px) and (max-width:1320px){.links{gap:2px}.links a{padding:9px 11px;font-size:14px}.cta{padding:12px 18px}}
+@media(max-width:1180px){.links{position:absolute;top:calc(100% + 10px);left:0;right:0;flex-direction:column;align-items:stretch;background:var(--bg);border:1px solid var(--line);border-radius:26px;padding:10px;display:none;pointer-events:auto}.links.open{display:flex}.links a{font-size:18px;white-space:normal}.burger{display:block;flex:none}.cta{display:none}.nav{padding:8px 8px 8px 20px}}
+/* about page: centred icon cards */
+.bn.three{grid-template-columns:repeat(3,1fr)}
+.bn.three .bc{grid-column:auto!important;grid-row:auto!important;min-height:250px;align-items:center;justify-content:center;text-align:center;gap:12px}
+.bn.three .bc p{max-width:26ch;margin:0 auto}
+.ic3{display:grid;place-items:center;width:68px;height:68px;border-radius:50%;background:color-mix(in srgb,currentColor 12%,transparent)}
+@media(max-width:860px){.bn.three{grid-template-columns:1fr}.bn.three .bc{min-height:210px}}
+.pas.ctr .pa{align-items:center;text-align:center;justify-content:center;gap:16px}
+.pas.ctr .pa svg{order:-1;align-self:center}.pas.ctr .pa p{max-width:30ch}
+.bn.three .bc svg{position:static;top:auto;left:auto;transform:none;width:34px;height:34px;max-width:none}
+.bn.three .bc{justify-content:flex-start;padding-top:40px}
+.pas.ctr .pa{justify-content:flex-start;padding-top:40px}
+.pas.ctr .pa h3{font-size:28px}

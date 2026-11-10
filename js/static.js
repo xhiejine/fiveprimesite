@@ -1,3 +1,4 @@
+try{sessionStorage.setItem('fp_intro','1')}catch(e){}
 (function(){
 var rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
 function $(s,r){return[].slice.call((r||document).querySelectorAll(s))}

@@ -36,7 +36,7 @@ document.getElementById('bg').onclick=function(){var l=document.getElementById('
 /* scroll motion */
 function sc(){var vh=innerHeight;
  $('[data-xp]').forEach(function(x){var r=x.getBoundingClientRect();if(r.bottom<0||r.top>vh)return;var p=Math.max(0,Math.min(1,(vh-r.top)/(vh*.8)));p=p*p*(3-2*p);
-  x.style.clipPath='inset(0 '+((1-p)*12)+'vw round '+(44-p*34)+'px)';$('img',x).forEach(function(i){i.style.transform='scale('+(1.2-p*.2)+')'})});
+  x.style.clipPath='inset(0 '+((1-p)*(innerWidth<861?5:12))+'vw round '+(44-p*34)+'px)';$('img',x).forEach(function(i){i.style.transform='scale('+(1.06-p*.06)+')'})});
  if(st.offsetParent){var r=st.getBoundingClientRect(),p=Math.max(0,Math.min(1,(vh*.85-r.top)/(r.height+vh*.35)));var n=Math.round(p*sw.length*1.05);sw.forEach(function(w,i){w.classList.toggle('on',i<n)})}
  var wm=document.getElementById('wm'),r2=wm.getBoundingClientRect();if(r2.top<vh*.95)wm.classList.add('in')}
 function upd(){requestAnimationFrame(sc)}
@@ -62,5 +62,5 @@ setInterval(function(){if(document.hidden||!x.offsetParent)return;im[k].classLis
 route();
 var intro=document.getElementById('intro');
 function go(){intro.classList.add('go');document.body.classList.add('go2');setTimeout(function(){intro.style.display='none'},1100)}
-if(rm){intro.style.display='none';document.body.classList.add('go2')}else setTimeout(go,1900);
+if(rm||!document.documentElement.classList.contains('first')){intro.style.display='none';document.body.classList.add('go2')}else setTimeout(go,1900);
 })();
